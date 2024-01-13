@@ -1,9 +1,31 @@
 # SSL-Check
 
-Herramienta simple de la línea de comandos para chequear la salud y la fecha de vencimiento
-del certificado SSL de un dominio.
+Thi is a very simple tool to check for the expiration date of a ssl certificate on a website, similar to performing an openssl s_client
+but with the difference that this is much simpler for humans to read. 
 
-### USO:
+If the certificate expires after today's date it shows as ACTIVE, and it shows the remainder of days until expiring.
+
+It might not be very useful but I release it anyway, for learning purposes, in the hopes that someone might any educational value in it. I'd like to see something nice and fun created out of this. 
+It uses openssl within a C application and that could give students of the C programming language some ideas, I hope!
+
+Feel free to expand, fix bugs or anything you wish! Please do create a new branch and send me a merge request. 
+
+```
+git clone https://github.com/alexiarstein/sslcheck.git
+cd sslcheck/
+git checkout -b "your-fancy-branch-name"
+And commit and push to your branch. Once you are happy with the changes send me a merge request over github!
+```
+
+It is currently printing the output in Spanish, but it shouldn't be too hard to implement an array for translation and a config for language selection. Feel free to add a config to select language or hard-code the language of your choice as a fork. 
+
+If you do use it or find it useful, you don't really have to, but I'd apprecite if you credit me. 
+
+
+This is licensed under a GNU GPL 3.0 License.
+
+
+### USAGE:
 Instructions: 
 
 Requires GCC and libssl 
@@ -17,16 +39,12 @@ RockyLinux/Fedora/CentOS Stream et al: sudo dnf install openssl-devel
 ### Usage: 
 ./sslcheck example.com
 
-## Author
-
+### Author
 Alexia Rivera steinberg <alexiarstein@aol.com>
 ---
 ### Additional Notes
 
-This is a very early release of something that might not even be useful but it is released anyway for learning purposes
-and perhaps someone can take ideas from it. 
-
-If you want to contribute to it, please by all means do so, feel free to clone it, do your fixes, create a new branch and send me a merge request!!
+This is a very early release for personal use. If you want to contribute to it, please by all means do so, feel free to clone it, do your fixes, create a new branch and send me a merge request!!
 
 ```
 git clone https://github.com/alexiarstein/sslcheck.git
