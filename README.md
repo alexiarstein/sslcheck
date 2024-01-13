@@ -5,7 +5,7 @@ but with the difference that this is much simpler for humans to read.
 
 If the certificate expires after today's date it shows as ACTIVE, and it shows the remainder of days until expiring.
 
-It might not be very useful but I release it anyway, for learning purposes, in the hopes that someone might any educational value in it. I'd like to see something nice and fun created out of this. 
+It might not be very useful but I release it anyway, for learning purposes, in the hopes that someone might find any educational value in it. I'd like to see something nice and fun created out of this. 
 It uses openssl within a C application and that could give students of the C programming language some ideas, I hope!
 
 Feel free to expand, fix bugs or anything you wish! Please do create a new branch and send me a merge request. 
