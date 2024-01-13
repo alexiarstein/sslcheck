@@ -3,22 +3,43 @@
 Herramienta simple de la línea de comandos para chequear la salud y la fecha de vencimiento
 del certificado SSL de un dominio.
 
-# USO:
+## USO:
+Instructions: 
 
-sslcheck ejemplo.com.ar
+Requires GCC and libssl 
 
-# Author
+Debian Ecosystem: ```sudo apt install libssl-dev```
+RockyLinux/Fedora/CentOS Stream et al: ```sudo dnf install openssl-devel```
 
-Alexia Rivera
+### Compiling:
+```gcc sslcheck.c -o sslcheck -lssl -lcrypto```
 
-# Notas adicionales
+### Usage: 
+./sslcheck example.com
 
-Desarrollo muy temprano. Requiere libssl-dev (distros familia debian)
-                                  openssl-devel (distros familia RHEL)
+## Author
 
-# Instalación:
+Alexia Rivera steinberg <alexiarstein@aol.com>
 
-chmod a+x sslcheck
+### Additional Notes
 
-mover a /usr/local/bin (sudo mv sslcheck /usr/local/bin)
+This is a very early release of something that might not even be useful but it is released anyway for learning purposes
+and perhaps someone can take ideas from it. 
 
+If you want to contribute to it, please by all means do so, feel free to clone it, do your fixes, create a new branch and send me a merge request!!
+
+```
+git clone https://github.com/alexiarstein/sslcheck.git
+
+cd sslcheck
+
+git checkout -b "your-fancy-branch-name"
+
+Push to your branch and then send me a merge request over github
+```
+
+For ease of use it could be moved to /usr/local/bin and set the mode excecutable for everyone
+```
+sudo mv sslcheck /usr/local/bin
+sudo chmod a+x /usr/local/bin/sslcheck
+```
