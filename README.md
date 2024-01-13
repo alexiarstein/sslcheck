@@ -3,14 +3,14 @@
 Herramienta simple de la línea de comandos para chequear la salud y la fecha de vencimiento
 del certificado SSL de un dominio.
 
-## USO:
+### USO:
 Instructions: 
 
 Requires GCC and libssl 
-
-Debian Ecosystem: ```sudo apt install libssl-dev```
-RockyLinux/Fedora/CentOS Stream et al: ```sudo dnf install openssl-devel```
-
+```
+Debian Ecosystem: sudo apt install libssl-dev
+RockyLinux/Fedora/CentOS Stream et al: sudo dnf install openssl-devel
+```
 ### Compiling:
 ```gcc sslcheck.c -o sslcheck -lssl -lcrypto```
 
@@ -20,7 +20,7 @@ RockyLinux/Fedora/CentOS Stream et al: ```sudo dnf install openssl-devel```
 ## Author
 
 Alexia Rivera steinberg <alexiarstein@aol.com>
-
+###
 ### Additional Notes
 
 This is a very early release of something that might not even be useful but it is released anyway for learning purposes
