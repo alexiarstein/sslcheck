@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sslcheck 1.0\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Uso: %s <dominio>\n"
+msgstr "Uso: %s <dominio>\n"
+
+msgid "Error al crear el contexto SSL\n"
+msgstr "Error al crear el contexto SSL\n"
+
+msgid "Error al obtener objeto SSL\n"
+msgstr "Error al obtener objeto SSL\n"
+
+msgid "Error al conectar con %s\n"
+msgstr "Error al conectar con %s\n"
+
+msgid "No se pudo obtener el certificado de %s\n"
+msgstr "No se pudo obtener el certificado de %s\n"
+
+msgid "No se pudo calcular la fecha de expiración\n"
+msgstr "No se pudo calcular la fecha de expiración\n"
+
+msgid "Dominio: %s | Días hasta que expire el Cert: %d\n"
+msgstr "Dominio: %s | Días hasta que expire el Cert: %d\n"
+
+msgid "Error al calcular la diferencia de tiempo\n"
+msgstr "Error al calcular la diferencia de tiempo\n"
+ø
