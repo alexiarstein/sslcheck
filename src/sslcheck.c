@@ -26,11 +26,9 @@
     #define BUILD_OS "Unknown OS"
 #endif
 
-
-
 #define _(STRING) gettext(STRING)
 
-int days_until_expiration(X509 *cert) {
+int days_until_expiration(X509 *cert, int *is_expired) {
     const ASN1_TIME *notAfter = X509_get0_notAfter(cert);
 
     ASN1_TIME *asn1_now = ASN1_TIME_new();
@@ -41,6 +39,13 @@ int days_until_expiration(X509 *cert) {
         fprintf(stderr, _("Error al calcular la diferencia de tiempo\n"));
         ASN1_TIME_free(asn1_now);
         return -1;
+    }
+
+    if (days < 0) {
+        *is_expired = 1;
+        days = -days;
+    } else {
+        *is_expired = 0;
     }
 
     ASN1_TIME_free(asn1_now);
@@ -58,7 +63,6 @@ int main(int argc, char **argv) {
         printf(_("Built for: %s\n"), BUILD_OS);
         return EXIT_SUCCESS;
     }
-
 
     if (argc != 2) {
         fprintf(stderr, _("Uso: %s <dominio>\n"), argv[0]);
@@ -78,6 +82,8 @@ int main(int argc, char **argv) {
         fprintf(stderr, _("Error al crear el contexto SSL\n"));
         return EXIT_FAILURE;
     }
+
+    SSL_CTX_set_verify(ctx, SSL_VERIFY_NONE, NULL);
 
     SSL *ssl = SSL_new(ctx);
     BIO *bio;
@@ -111,9 +117,15 @@ int main(int argc, char **argv) {
         return EXIT_FAILURE;
     }
 
-    int days = days_until_expiration(cert);
+    int is_expired = 0;
+    int days = days_until_expiration(cert, &is_expired);
+    
     if (days >= 0) {
-        printf(_("Dominio: %s | Días hasta que expire el Cert: %d\n"), hostname, days);
+        if (is_expired) {
+            printf(_("Dominio: %s | Certificado EXPIRADO hace %d días\n"), hostname, days);
+        } else {
+            printf(_("Dominio: %s | Días hasta que expire el Cert: %d\n"), hostname, days);
+        }
     } else {
         fprintf(stderr, _("No se pudo calcular la fecha de expiración\n"));
     }

@@ -26,5 +26,8 @@ msgstr "Could not calculate expiration date\n"
 msgid "Dominio: %s | Días hasta que expire el Cert: %d\n"
 msgstr "Domain: %s | Days until cert expires: %d\n"
 
+msgid "Dominio: %s | Certificado EXPIRADO hace %d días\n"
+msgstr "Domain: %s | Certificate EXPIRED %d days ago\n"
+
 msgid "Error al calcular la diferencia de tiempo\n"
 msgstr "Error calculating time difference\n"
