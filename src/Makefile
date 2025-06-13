@@ -8,7 +8,7 @@ CFLAGS = -Wall -O2
 LDFLAGS = -lssl -lcrypto
 
 UNAME_S := $(shell uname -s)
-PREFIX = /usr/
+PREFIX = /usr
 DOMAIN = sslcheck
 LOCALEDIR = $(PREFIX)/share/locale
 BINDIR = $(PREFIX)/bin

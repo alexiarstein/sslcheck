@@ -12,7 +12,7 @@
 
 #define _(STRING) gettext(STRING)
 #define LOCALE_PATH "/usr/share/locale"
-#define VERSION "1.0.4"
+#define VERSION "1.0.6"
 #define AUTHOR "Alexia Michelle <alexia@goldendoglinux.org>"
 
 const char *get_platform() {
@@ -54,14 +54,6 @@ int days_until_expiration(X509 *cert) {
     return days;
 }
 
-void debug_lang_info() {
-    printf("LOCALE_PATH is set to: %s\n", LOCALE_PATH);
-    const char *lang = getenv("LANG");
-    printf("LANG: %s\n", lang ? lang : "(not set)");
-    printf("TEXTDOMAIN: %s\n", textdomain(NULL));
-    printf("TEXTDOMAINDIR: %s\n", bindtextdomain("sslcheck", NULL));
-}
-
 int main(int argc, char **argv) {
     setlocale(LC_ALL, "");
     bindtextdomain("sslcheck", LOCALE_PATH);
@@ -73,7 +65,6 @@ int main(int argc, char **argv) {
         {"short",   no_argument,       0, 's'},
         {"help",    no_argument,       0, 'h'},
         {"version", no_argument,       0, 'v'},
-        {"debug-lang", no_argument, 0, 1000},
         {0, 0, 0, 0}
     };
 
@@ -83,7 +74,6 @@ int main(int argc, char **argv) {
             case 's': short_output = 1; break;
             case 'h': print_help(); return 0;
             case 'v': print_version(); return 0;
-            case 1000: debug_lang_info();  return 0;
             default:
                 print_help();
                 return EXIT_FAILURE;
