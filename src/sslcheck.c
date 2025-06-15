@@ -39,6 +39,7 @@ void print_help() {
     printf("%s\n", AUTHOR);
     printf(_("sslcheck <domain> prints domain and remainder of days until cert expires\n"));
     printf(_("sslcheck --short <domain> prints only the days\n"));
+    printf(_("sslcheck --json <domain> prints output as JSON\n"));
     printf(_("sslcheck --help prints this menu\n"));
     printf(_("sslcheck --version prints version\n"));
 }
@@ -60,18 +61,21 @@ int main(int argc, char **argv) {
     textdomain("sslcheck");
 
     int short_output = 0;
+    int json_output = 0;
 
     static struct option long_options[] = {
         {"short",   no_argument,       0, 's'},
+        {"json",    no_argument,       0, 'j'},
         {"help",    no_argument,       0, 'h'},
         {"version", no_argument,       0, 'v'},
         {0, 0, 0, 0}
     };
 
     int opt;
-    while ((opt = getopt_long(argc, argv, "shv", long_options, NULL)) != -1) {
+    while ((opt = getopt_long(argc, argv, "sjhv", long_options, NULL)) != -1) {
         switch (opt) {
             case 's': short_output = 1; break;
+            case 'j': json_output = 1; break;
             case 'h': print_help(); return 0;
             case 'v': print_version(); return 0;
             default:
@@ -133,7 +137,9 @@ int main(int argc, char **argv) {
 
     int days = days_until_expiration(cert);
     if (days >= 0) {
-        if (short_output) {
+        if (json_output) {
+            printf("{\"domain\": \"%s\", \"days\": %d}\n", hostname, days);
+        } else if (short_output) {
             printf("%d\n", days);
         } else {
             printf(_("Domain: %s | Days until Certification expires: %d\n"), hostname, days);
