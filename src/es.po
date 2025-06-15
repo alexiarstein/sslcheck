@@ -44,32 +44,42 @@ msgstr "sslcheck --help muestra este menú\n"
 msgid "sslcheck --version prints version\n"
 msgstr "sslcheck --version muestra la versión\n"
 
-#: sslcheck.c:108
+#: sslcheck.c:106
 #, c-format
 msgid "Error creating SSL context\n"
 msgstr "Error al crear el contexto SSL\n"
 
-#: sslcheck.c:120
+#: sslcheck.c:118
 #, c-format
 msgid "Error getting SSL object\n"
 msgstr "Error al obtener el objeto SSL\n"
 
-#: sslcheck.c:130
+#: sslcheck.c:128
 #, c-format
 msgid "Error connecting to %s\n"
 msgstr "Error al conectar con %s\n"
 
-#: sslcheck.c:138
+#: sslcheck.c:136
 #, c-format
 msgid "No certificate found for %s\n"
 msgstr "No se encontró un certificado para %s\n"
 
-#: sslcheck.c:149
+#: sslcheck.c:148
+#, c-format
+msgid "Expired %d days ago\n"
+msgstr "Cadudado hace % días\n"
+
+#: sslcheck.c:154
+#, c-format
+msgid "Domain: %s | Certificate EXPIRED %d days ago\n"
+msgstr "Dominio: %s | Certificado CADUCADO hace %d días\n"
+
+#: sslcheck.c:156
 #, c-format
 msgid "Domain: %s | Days until Certification expires: %d\n"
 msgstr "Dominio: %s | Días hasta que expire el certificado: %d\n"
 
-#: sslcheck.c:152
+#: sslcheck.c:160
 #, c-format
 msgid "Could not calculate certificate expiration\n"
 msgstr "No se pudo calcular la expiración del certificado\n"

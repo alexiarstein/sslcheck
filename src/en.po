@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: sslcheck 1.0.0\n"
-"Report-Msgid-Bugs-To: alexia@goldendoglinux.org\n"
-"POT-Creation-Date: 2025-06-13 18:25-0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-13 19:24-0300\n"
 "PO-Revision-Date: 2025-06-13 00:00-0300\n"
 "Last-Translator: Alexia Michelle <alexia@goldendoglinux.org>\n"
 "Language-Team: English <en@li.org>\n"
@@ -16,52 +16,69 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/sslcheck.c:41
+#: sslcheck.c:33 sslcheck.c:38
 #, c-format
-msgid "sslcheck <domain> prints domain and remainder of days until cert expires\n"
-msgstr "sslcheck <domain> prints domain and remainder of days until cert expires\n"
+msgid "SSLCHECK %s (%s)\n"
+msgstr ""
 
-#: ../src/sslcheck.c:42
+#: sslcheck.c:40
+#, c-format
+msgid ""
+"sslcheck <domain> prints domain and remainder of days until cert expires\n"
+msgstr ""
+"sslcheck <domain> prints domain and remainder of days until cert expires\n"
+
+#: sslcheck.c:41
 #, c-format
 msgid "sslcheck --short <domain> prints only the days\n"
 msgstr "sslcheck --short <domain> prints only the days\n"
 
-#: ../src/sslcheck.c:43
+#: sslcheck.c:42
 #, c-format
 msgid "sslcheck --help prints this menu\n"
 msgstr "sslcheck --help prints this menu\n"
 
-#: ../src/sslcheck.c:44
+#: sslcheck.c:43
 #, c-format
 msgid "sslcheck --version prints version\n"
 msgstr "sslcheck --version prints version\n"
 
-#: ../src/sslcheck.c:100
+#: sslcheck.c:106
 #, c-format
 msgid "Error creating SSL context\n"
 msgstr "Error creating SSL context\n"
 
-#: ../src/sslcheck.c:112
+#: sslcheck.c:118
 #, c-format
 msgid "Error getting SSL object\n"
 msgstr "Error getting SSL object\n"
 
-#: ../src/sslcheck.c:122
+#: sslcheck.c:128
 #, c-format
 msgid "Error connecting to %s\n"
 msgstr "Error connecting to %s\n"
 
-#: ../src/sslcheck.c:130
+#: sslcheck.c:136
 #, c-format
 msgid "No certificate found for %s\n"
 msgstr "No certificate found for %s\n"
 
-#: ../src/sslcheck.c:141
+#: sslcheck.c:148
+#, c-format
+msgid "Expired %d days ago\n"
+msgstr "Expired %d days ago\n"
+
+#: sslcheck.c:154
+#, c-format
+msgid "Domain: %s | Certificate EXPIRED %d days ago\n"
+msgstr "Domain: %s | Certificate EXPIRED %d days ago\n"
+
+#: sslcheck.c:156
 #, c-format
 msgid "Domain: %s | Days until Certification expires: %d\n"
 msgstr "Domain: %s | Days until Certification expires: %d\n"
 
-#: ../src/sslcheck.c:144
+#: sslcheck.c:160
 #, c-format
 msgid "Could not calculate certificate expiration\n"
 msgstr "Could not calculate certificate expiration\n"

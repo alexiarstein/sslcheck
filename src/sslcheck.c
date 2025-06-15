@@ -43,13 +43,21 @@ void print_help() {
     printf(_("sslcheck --version prints version\n"));
 }
 
-int days_until_expiration(X509 *cert) {
+int days_until_expiration(X509 *cert, int *is_expired) {
     const ASN1_TIME *notAfter = X509_get0_notAfter(cert);
     ASN1_TIME *asn1_now = ASN1_TIME_new();
     ASN1_TIME_set(asn1_now, time(NULL));
 
     int days = 0, seconds = 0;
     ASN1_TIME_diff(&days, &seconds, asn1_now, notAfter);
+
+    if (days < 0) {
+        *is_expired = 1;
+        days = -days;
+    } else {
+        *is_expired = 0;
+    }
+
     ASN1_TIME_free(asn1_now);
     return days;
 }
@@ -131,12 +139,22 @@ int main(int argc, char **argv) {
         return EXIT_FAILURE;
     }
 
-    int days = days_until_expiration(cert);
+    int is_expired = 0;
+    int days = days_until_expiration(cert, &is_expired);
+
     if (days >= 0) {
         if (short_output) {
-            printf("%d\n", days);
+            if (is_expired) {
+                printf(_("Expired %d days ago\n"), days);
+            } else {
+                printf("%d\n", days);
+            }
         } else {
-            printf(_("Domain: %s | Days until Certification expires: %d\n"), hostname, days);
+            if (is_expired) {
+                printf(_("Domain: %s | Certificate EXPIRED %d days ago\n"), hostname, days);
+            } else {
+                printf(_("Domain: %s | Days until Certification expires: %d\n"), hostname, days);
+            }
         }
     } else {
         fprintf(stderr, _("Could not calculate certificate expiration\n"));
