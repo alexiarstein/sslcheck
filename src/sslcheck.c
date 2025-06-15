@@ -1,3 +1,10 @@
+// SSLCHECK
+// Prints the remainder of days of the life of a TLS/SSL Certificate
+// Supports json output
+// Author: Alexia Michelle <alexia@goldendoglinux.org>
+// License: GNU GPL 3.0 (see LICENSE for more information)
+
+
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,11 +16,31 @@
 #include <libintl.h>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
+#include "sslcheck.h"
 
-#define _(STRING) gettext(STRING)
-#define LOCALE_PATH "/usr/share/locale"
-#define VERSION "1.0.6"
-#define AUTHOR "Alexia Michelle <alexia@goldendoglinux.org>"
+// New. Let's get the system's Architecture too.
+// It makes the version look more fancy. That's all.
+// - Alexia
+
+const char *get_arch() {
+#if defined(__x86_64__) || defined(_M_X64)
+    return "x86_64";
+#elif defined(__i386) || defined(_M_IX86)
+    return "i386";
+#elif defined(__aarch64__)
+    return "arm64";
+#elif defined(__arm__) || defined(_M_ARM)
+    return "arm";
+#elif defined(__ppc64__) || defined(__powerpc64__)
+    return "ppc64";
+#elif defined(__ppc__) || defined(__powerpc__)
+    return "ppc";
+#elif defined(__mips__)
+    return "mips";
+#else
+    return "unknown";
+#endif
+}
 
 const char *get_platform() {
     #if defined(__linux__)
@@ -30,18 +57,22 @@ const char *get_platform() {
 }
 
 void print_version() {
-    printf(_("SSLCHECK %s (%s)\n"), VERSION, get_platform());
-    printf("%s\n", AUTHOR);
+//    printf(_("SSLCHECK %s (%s)\n"), VERSION, get_platform());
+      printf(_("SSLCHECK %s (%s, %s)\n"), VERSION, get_platform(), get_arch());
+ 
+   printf("%s\n", AUTHOR);
 }
 
 void print_help() {
-    printf(_("SSLCHECK %s (%s)\n"), VERSION, get_platform());
-    printf("%s\n", AUTHOR);
-    printf(_("sslcheck <domain> prints domain and remainder of days until cert expires\n"));
-    printf(_("sslcheck --short <domain> prints only the days\n"));
-    printf(_("sslcheck --json <domain> prints output as JSON\n"));
-    printf(_("sslcheck --help prints this menu\n"));
-    printf(_("sslcheck --version prints version\n"));
+    //printf(_("SSLCHECK %s (%s)\n"), VERSION, get_platform());
+      printf(_("SSLCHECK %s (%s, %s)\n"), VERSION, get_platform(), get_arch());
+    
+printf("%s\n", AUTHOR "\n");
+    printf(_("sslcheck <domain>     prints domain and remainder of days until cert expires\n"));
+    printf(_("-s --short <domain>   prints only the days\n"));
+    printf(_("-j --json <domain>    prints output as JSON\n"));
+    printf(_("-h --help             prints this menu\n"));
+    printf(_("-v --version          prints version\n"));
 }
 
 int days_until_expiration(X509 *cert) {

@@ -1,74 +1,79 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translations template for sslcheck.
+# Copyright (C) 2025 Alexia Michelle
+# This file is distributed under the same license as the sslcheck package.
+# Alexia Michelle <alexia@goldendoglinux.org>, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-13 19:24-0300\n"
+"Project-Id-Version: sslcheck 1.1.2\n"
+"Report-Msgid-Bugs-To: alexia@goldendoglinux.org\n"
+"POT-Creation-Date: 2025-06-15 15:02-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: sslcheck.c:33 sslcheck.c:38
+#: sslcheck.c:61 sslcheck.c:68
 #, c-format
-msgid "SSLCHECK %s (%s)\n"
+msgid "SSLCHECK %s (%s, %s)\n"
 msgstr ""
 
-#: sslcheck.c:40
+#: sslcheck.c:71
 #, c-format
 msgid ""
-"sslcheck <domain> prints domain and remainder of days until cert expires\n"
+"sslcheck <domain>     prints domain and remainder of days until cert "
+"expires\n"
 msgstr ""
 
-#: sslcheck.c:41
+#: sslcheck.c:72
 #, c-format
-msgid "sslcheck --short <domain> prints only the days\n"
+msgid "-s --short <domain>   prints only the days\n"
 msgstr ""
 
-#: sslcheck.c:42
+#: sslcheck.c:73
 #, c-format
-msgid "sslcheck --help prints this menu\n"
+msgid "-j --json <domain>    prints output as JSON\n"
 msgstr ""
 
-#: sslcheck.c:43
+#: sslcheck.c:74
 #, c-format
-msgid "sslcheck --version prints version\n"
+msgid "-h --help             prints this menu\n"
 msgstr ""
 
-#: sslcheck.c:108
+#: sslcheck.c:75
+#, c-format
+msgid "-v --version          prints version\n"
+msgstr ""
+
+#: sslcheck.c:133
 #, c-format
 msgid "Error creating SSL context\n"
 msgstr ""
 
-#: sslcheck.c:120
+#: sslcheck.c:145
 #, c-format
 msgid "Error getting SSL object\n"
 msgstr ""
 
-#: sslcheck.c:130
+#: sslcheck.c:155
 #, c-format
 msgid "Error connecting to %s\n"
 msgstr ""
 
-#: sslcheck.c:138
+#: sslcheck.c:163
 #, c-format
 msgid "No certificate found for %s\n"
 msgstr ""
 
-#: sslcheck.c:149
+#: sslcheck.c:176
 #, c-format
 msgid "Domain: %s | Days until Certification expires: %d\n"
 msgstr ""
 
-#: sslcheck.c:152
+#: sslcheck.c:179
 #, c-format
 msgid "Could not calculate certificate expiration\n"
 msgstr ""

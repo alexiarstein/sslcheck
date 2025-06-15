@@ -1,14 +1,14 @@
 # Spanish translation for sslcheck
 # Copyright (C) 2025 Alexia Michelle
-# This file is distributed under the same license as the sslcheck package.
+# This file is distributed under la misma licencia que el paquete sslcheck.
 # Alexia Michelle <alexia@goldendoglinux.org>, 2025.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: sslcheck 1.0.0\n"
+"Project-Id-Version: sslcheck 1.2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-13 19:24-0300\n"
-"PO-Revision-Date: 2025-06-13 00:00-0300\n"
+"POT-Creation-Date: 2025-06-15 15:02-0300\n"
+"PO-Revision-Date: 2025-06-15 15:13-0300\n"
 "Last-Translator: Alexia Michelle <alexia@goldendoglinux.org>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "Language: es\n"
@@ -16,60 +16,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: sslcheck.c:33 sslcheck.c:38
+#: sslcheck.c:61 sslcheck.c:68
 #, c-format
-msgid "SSLCHECK %s (%s)\n"
-msgstr ""
+msgid "SSLCHECK %s (%s, %s)\n"
+msgstr "SSLCHECK %s (%s, %s)\n"
 
-#: sslcheck.c:40
+#: sslcheck.c:71
 #, c-format
-msgid ""
-"sslcheck <domain> prints domain and remainder of days until cert expires\n"
-msgstr ""
-"sslcheck <dominio> muestra el dominio y los días restantes hasta que expire "
-"el certificado\n"
+msgid "sslcheck <domain>     prints domain and remainder of days until cert expires\n"
+msgstr "sslcheck <dominio>     muestra el dominio y los días restantes hasta que expire el certificado\n"
 
-#: sslcheck.c:41
+#: sslcheck.c:72
 #, c-format
-msgid "sslcheck --short <domain> prints only the days\n"
-msgstr "sslcheck --short <dominio> muestra solo los días\n"
+msgid "-s --short <domain>   prints only the days\n"
+msgstr "-s --short <dominio>   muestra solo los días\n"
 
-#: sslcheck.c:42
+#: sslcheck.c:73
 #, c-format
-msgid "sslcheck --help prints this menu\n"
-msgstr "sslcheck --help muestra este menú\n"
+msgid "-j --json <domain>    prints output as JSON\n"
+msgstr "-j --json <dominio>    muestra la salida en formato JSON\n"
 
-#: sslcheck.c:43
+#: sslcheck.c:74
 #, c-format
-msgid "sslcheck --version prints version\n"
-msgstr "sslcheck --version muestra la versión\n"
+msgid "-h --help             prints this menu\n"
+msgstr "-h --help              muestra este menú\n"
 
-#: sslcheck.c:108
+#: sslcheck.c:75
+#, c-format
+msgid "-v --version          prints version\n"
+msgstr "-v --version           muestra la versión\n"
+
+#: sslcheck.c:133
 #, c-format
 msgid "Error creating SSL context\n"
 msgstr "Error al crear el contexto SSL\n"
 
-#: sslcheck.c:120
+#: sslcheck.c:145
 #, c-format
 msgid "Error getting SSL object\n"
 msgstr "Error al obtener el objeto SSL\n"
 
-#: sslcheck.c:130
+#: sslcheck.c:155
 #, c-format
 msgid "Error connecting to %s\n"
-msgstr "Error al conectar con %s\n"
+msgstr "Error al conectar a %s\n"
 
-#: sslcheck.c:138
+#: sslcheck.c:163
 #, c-format
 msgid "No certificate found for %s\n"
-msgstr "No se encontró un certificado para %s\n"
+msgstr "No se encontró certificado para %s\n"
 
-#: sslcheck.c:149
+#: sslcheck.c:176
 #, c-format
 msgid "Domain: %s | Days until Certification expires: %d\n"
-msgstr "Dominio: %s | Días hasta que expire el certificado: %d\n"
+msgstr "Dominio: %s | Días hasta el vencimiento del certificado: %d\n"
 
-#: sslcheck.c:152
+#: sslcheck.c:179
 #, c-format
 msgid "Could not calculate certificate expiration\n"
 msgstr "No se pudo calcular la expiración del certificado\n"
